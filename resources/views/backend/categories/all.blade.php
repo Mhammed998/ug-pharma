@@ -23,11 +23,11 @@
                         <h3 class="box-title">عرض جميع الاقسام</h3>
 
                         <div class="box-tools">
-
                         </div>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive no-padding">
+                        @include('backend.alert')
                         <table class="table direction table-hover">
                             <tr>
                                 <th>#</th>
@@ -52,14 +52,17 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <img src="" alt="صوره القسم" />
+                                    <a href="{{asset('images/categories/' . $cate->cate_image)}}" target="_blank" >
+                                        <img style="height:30px;width: 30px;" src="{{asset('images/categories/' . $cate->cate_image)}}" alt="صوره القسم" />
+
+                                    </a>
                                 </td>
                                 <td> {{$cate->products->count()}} </td>
                                 <td>
-                                    <a class="btn btn-sm  mr-2 btn-primary">
+                                    <a href="{{route('categories.edit' ,$cate->id)}}" class="btn btn-sm  mr-2 btn-primary">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a class="btn btn-sm btn-danger">
+                                    <a href="{{route('categories.delete',$cate->id)}}" class="btn btn-sm btn-danger">
                                         <i class="fa fa-trash"></i>
                                     </a>
                                 </td>

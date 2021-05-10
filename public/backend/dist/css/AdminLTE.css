@@ -19,6 +19,8 @@
 html,
 body {
   min-height: 100%;
+    font-family: 'Cairo', sans-serif !important;
+
 }
 .layout-boxed html,
 .layout-boxed body {
