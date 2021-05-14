@@ -71,7 +71,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{asset('backend/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">{{Auth::user()->name}}</span>
+                            <span class="hidden-xs">{{Auth::user()->first_name}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -128,7 +128,7 @@
                     <img src="{{asset('backend/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-right info">
-                    <p>{{Auth::user()->name}}</p>
+                    <p>{{Auth::user()->email}}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -165,8 +165,8 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> عرض المنتجات</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> اضافه منتج جديد</a></li>
+                        <li><a href="{{route('products.all')}}"><i class="fa fa-circle-o"></i> عرض المنتجات</a></li>
+                        <li><a href="{{route('products.create')}}"><i class="fa fa-circle-o"></i> اضافه منتج جديد</a></li>
                     </ul>
                 </li>
 
@@ -176,7 +176,7 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>  عرض الاعضاء </a></li>
+                        <li><a href="{{route('users.all')}}"><i class="fa fa-circle-o"></i>  عرض الاعضاء </a></li>
                     </ul>
                 </li>
 
