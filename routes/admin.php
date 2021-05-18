@@ -8,11 +8,10 @@ Auth::routes();
 
 
 
-Route::group(['prefix'=>'dashboard','namespace'=>'Admin'],function (){
+Route::group(['prefix'=>'dashboard','namespace'=>'Admin','middleware'=>['auth','checkIfAdmin']],function (){
 
     //main dashboard routes
     Route::get('/main','MainController@index')->name('dashboard.main');
-
 
     //categories routes
     Route::get('/categories/show-all','CategoryController@index')->name('categories.all');
@@ -21,6 +20,15 @@ Route::group(['prefix'=>'dashboard','namespace'=>'Admin'],function (){
     Route::get('/categories/delete/{id}','CategoryController@destroy')->name('categories.delete');
     Route::post('/categories/store','CategoryController@store')->name('categories.store');
     Route::post('/categories/update/{id}','CategoryController@update')->name('categories.update');
+
+
+    //posts routes
+    Route::get('/posts/show-all','PostController@index')->name('posts.all');
+    Route::get('/posts/create','PostController@create')->name('posts.create');
+    Route::get('/posts/edit/{id}','PostController@edit')->name('posts.edit');
+    Route::get('/posts/delete/{id}','PostController@destroy')->name('posts.delete');
+    Route::post('/posts/store','PostController@store')->name('posts.store');
+    Route::post('/posts/update/{id}','PostController@update')->name('posts.update');
 
 
     //products routes

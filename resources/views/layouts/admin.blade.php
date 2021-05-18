@@ -71,7 +71,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{asset('backend/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">{{Auth::user()->first_name}}</span>
+                            <span class="hidden-xs">{{Auth::user()->email}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -79,32 +79,41 @@
                                 <img src="{{asset('backend/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    {{Auth::user()->first_name . ' ' . Auth::user()->last_name }} - Admin
+                                    <small>Member since {{Auth::user()->created_at->format('Mm-Y')}}</small>
                                 </p>
                             </li>
                             <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-                            </li>
+{{--                            <li class="user-body">--}}
+{{--                                <div class="row">--}}
+{{--                                    <div class="col-xs-4 text-center">--}}
+{{--                                        <a href="#">Followers</a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-xs-4 text-center">--}}
+{{--                                        <a href="#">Sales</a>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-xs-4 text-center">--}}
+{{--                                        <a href="#">Friends</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <!-- /.row -->--}}
+{{--                            </li>--}}
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    <a href="#" class="btn btn-default btn-flat">بيانات الحساب</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        تسجيل خروج
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+
                                 </div>
                             </li>
                         </ul>
@@ -128,7 +137,7 @@
                     <img src="{{asset('backend/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-right info">
-                    <p>{{Auth::user()->email}}</p>
+                    <p> {{Auth::user()->first_name . ' ' . Auth::user()->last_name }}</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -186,8 +195,8 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>  عرض المنشورات</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> اضافه منشور جديد </a></li>
+                        <li><a href="{{route('posts.all')}}"><i class="fa fa-circle-o"></i>  عرض المنشورات</a></li>
+                        <li><a href="{{route('posts.create')}}"><i class="fa fa-circle-o"></i> اضافه منشور جديد </a></li>
                     </ul>
                 </li>
 

@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('ingredients_en');
             $table->float('price');
             $table->string('brand');
-            $table->float('size');
+            $table->string('size');
             $table->boolean('status')->default(true);
             $table->string('images');
             $table->unsignedBigInteger('category_id');
