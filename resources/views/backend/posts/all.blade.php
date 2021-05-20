@@ -48,7 +48,7 @@
                                     </a>
                                 </td>
 
-                                <td> {{$post->category->title_ar}} </td>
+                                <td> {{$post->category == "0" ? "عام" : $post->category}} </td>
 
                                 <td>
                                     @if($post->status)

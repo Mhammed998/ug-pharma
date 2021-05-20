@@ -1,0 +1,254 @@
+.product-detail .swiper-slide .img-container img {
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.product-detail h5 {
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 1.4px;
+    color: var(--secd);
+    text-transform: capitalize;
+}
+
+.product-detail p {
+    color: var(--main);
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-detail p span {
+    color: #838080;
+    font-weight: normal;
+    font-size: 17px;
+    margin-left: 20px;
+}
+
+.down,
+.up {
+    width: 35px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.5s all ease-in-out;
+    margin-right: 10px;
+}
+
+.down:hover,
+.up:hover {
+    background-color: var(--main);
+    color: #fff;
+}
+
+.quantity-inp {
+    height: 30px;
+    width: 50px;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    color: #898989;
+}
+
+.product-detail i {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+    border: 2px solid var(--secd);
+    color: var(--main);
+    font-size: 22px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -ms-transition: 0.3s all ease-in-out;
+    -o-transition: 0.3s all ease-in-out;
+}
+
+.product-detail i:hover {
+    color: var(--secd);
+    border-color: var(--main);
+}
+
+
+/*start reviews*/
+
+.reviews {
+    border-top: 1px solid #d1d0d0;
+    margin-bottom: 10%;
+}
+
+.reviews ul.nav {
+    display: flex;
+    margin-bottom: 5%;
+}
+
+[dir="ltr"] .reviews ul.nav li button,
+[dir="ltr"] .reviews ul.nav li button:focus {
+    border: none;
+    border-radius: 0;
+    padding: 10px 3em;
+    background-color: transparent;
+    color: var(--main);
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 18px;
+    outline: none;
+}
+
+[dir="rtl"] .reviews ul.nav li button,
+[dir="rtl"] .reviews ul.nav li button:focus {
+    border: none;
+    border-radius: 0;
+    padding: 10px 3em;
+    background-color: transparent;
+    color: var(--main);
+    font-weight: bold;
+    letter-spacing: 0px;
+    font-size: 18px;
+    outline: none;
+}
+
+.reviews ul.nav li button.active {
+    border-bottom: 2px solid var(--main);
+    color: var(--secd);
+    background-color: transparent;
+}
+
+.reviews .details,
+.reviews .review {
+    width: 75%;
+    margin: auto;
+}
+
+.reviews .details p {
+    color: var(--main);
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.reviews .details p span {
+    color: #898989;
+    font-weight: normal;
+    font-size: 17px;
+    margin-left: 10px;
+}
+
+.reviews .review .img-container {
+    width: 100px;
+}
+
+.reviews .review .star i {
+    margin-right: 2px;
+}
+
+.reviews .review .star i:not(:last-child) {
+    color: var(--secd);
+}
+
+.reviews .review .star i:last-child {
+    color: #898989;
+}
+
+.reviews .review p {
+    color: #898989;
+    margin-bottom: 5px;
+}
+
+.add-review {
+    width: 75%;
+    margin: auto;
+}
+
+[dir="ltr"] .add-review h5 {
+    font-weight: bold;
+    color: var(--main);
+    font-family: 'Lobster', cursive;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
+
+[dir="rtl"] .add-review h5 {
+    font-weight: bold;
+    color: var(--main);
+    font-family: 'Lobster', cursive;
+    text-transform: capitalize;
+    letter-spacing: 0px;
+}
+
+.add-review .rate {
+    float: left;
+    height: 34px;
+    padding: 10px 0;
+}
+
+.add-review .rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+    display: none;
+}
+
+.add-review .rate:not(:checked)>label {
+    float: right;
+    width: 1.1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ccc;
+    transition: 0.2s all ease-in-out;
+    -webkit-transition: 0.2s all ease-in-out;
+    -moz-transition: 0.2s all ease-in-out;
+    -ms-transition: 0.2s all ease-in-out;
+    -o-transition: 0.2s all ease-in-out;
+}
+
+.add-review .rate>input:checked~label {
+    color: var(--secd);
+}
+
+.add-review .rate:not(:checked)>label:hover,
+.add-review .rate:not(:checked)>label:hover~label {
+    color: var(--secd);
+}
+
+.add-review form label {
+    color: var(--secd);
+    margin-bottom: 5px;
+}
+
+.add-review form .form-control,
+.add-review form .form-control:focus {
+    border: 2px solid #e7e7e7;
+    outline: none;
+    box-shadow: none;
+    color: var(--main);
+    font-weight: bold;
+}
+
+@media (max-width: 991.98px) {
+    div.buttom a.btn {
+        padding: 6px 16px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .reviews ul.nav li button,
+    .reviews ul.nav li button:focus {
+        padding: 10px 1em;
+    }
+}

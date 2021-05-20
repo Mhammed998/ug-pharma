@@ -1,0 +1,164 @@
+.checkout .cart-details {
+    border: 1px solid var(--main);
+    padding: 10px 15px;
+    box-shadow: 0px 0px 6px var(--main);
+}
+
+.checkout h3 {
+    font-size: 26px;
+    text-align: center;
+}
+
+.checkout p {
+    margin-top: 15px;
+    color: #838080;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout .check--forms ul.nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+[dir="ltr"] .checkout .check--forms ul.nav li button,
+[dir="ltr"] .checkout .check--forms ul.nav li button:focus {
+    border: none;
+    border-radius: 0;
+    padding: 10px 3em;
+    background-color: transparent;
+    color: var(--main);
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 18px;
+    outline: none;
+}
+
+[dir="rtl"] .checkout .check--forms ul.nav li button,
+[dir="rtl"] .checkout .check--forms ul.nav li button:focus {
+    border: none;
+    border-radius: 0;
+    padding: 10px 3em;
+    background-color: transparent;
+    color: var(--main);
+    font-weight: bold;
+    letter-spacing: 0px;
+    font-size: 18px;
+    outline: none;
+}
+
+.checkout .check--forms ul.nav li button.active {
+    border-bottom: 2px solid var(--main);
+    color: var(--secd);
+}
+
+.checkout .singnin-guest p {
+    color: #898989;
+    letter-spacing: 0.77px;
+    padding: 5px;
+    margin-right: 5px;
+    text-transform: capitalize;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.checkout .singnin-guest p a {
+    color: var(--secd);
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+[dir="ltr"] .checkout .singnin-guest p:not(:last-child) {
+    border-right: 1px solid var(--secd);
+    padding-right: 15px;
+    padding-left: 0;
+}
+
+[dir="rtl"] .checkout .singnin-guest p:not(:last-child) {
+    border-left: 1px solid var(--secd);
+    padding-left: 15px;
+    padding-right: 0;
+}
+
+.checkout form label {
+    color: #898989;
+    letter-spacing: 0.7px;
+    text-transform: capitalize;
+    margin: 5px 0;
+}
+
+.checkout form input,
+.checkout form input:focus,
+.checkout form select,
+.checkout .form-control {
+    margin: 10px 0;
+    width: 85%;
+    border: 1px solid var(--main);
+    box-shadow: none;
+}
+
+[dir="ltr"] .checkout form p {
+    color: var(--secd);
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+[dir="rtl"] .checkout form p {
+    color: var(--secd);
+    letter-spacing: 0px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.checkout .img-container {
+    max-width: 100px;
+    height: 80px;
+    margin: 20px 10px;
+}
+
+.checkout .img-container img {
+    height: 100%;
+}
+
+.custom-control {
+    color: var(--secd);
+    font-weight: bold;
+}
+
+@media (max-width: 991.98px) {
+    [dir="ltr"] .checkout .check--forms ul.nav li button,
+    [dir="ltr"] .checkout .check--forms ul.nav li button:focus {
+        padding: 10px 0em;
+        font-size: 16px;
+    }
+    [dir="rtl"] .checkout .check--forms ul.nav li button,
+    [dir="rtl"] .checkout .check--forms ul.nav li button:focus {
+        padding: 10px 0em;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .cart-details {
+        width: 67%;
+        margin: auto;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    [dir="ltr"] .checkout .check--forms ul.nav li button,
+    [dir="ltr"] .checkout .check--forms ul.nav li button:focus {
+        font-size: 13px;
+    }
+    [dir="rtl"] .checkout .check--forms ul.nav li button,
+    [dir="rtl"] .checkout .check--forms ul.nav li button:focus {
+        font-size: 13px;
+    }
+    div.buttom a.btn {
+        letter-spacing: 0;
+        padding: 6px 24px;
+    }
+}

@@ -1,0 +1,81 @@
+[dir="ltr"] nav ul.pagination li:first-child {
+    margin-left: auto;
+}
+
+[dir="rtl"] nav ul.pagination li:first-child {
+    margin-left: 0;
+}
+
+[dir="ltr"] nav ul.pagination li a {
+    color: var(--secd);
+    font-weight: bold;
+    border: 1px solid var(--secd);
+    padding: .375rem 1.75rem;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+
+[dir="rtl"] nav ul.pagination li a {
+    color: var(--secd);
+    font-weight: bold;
+    border: 1px solid var(--secd);
+    padding: .375rem 1.75rem;
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+
+nav ul.pagination li a:hover {
+    border: 1px solid var(--secd);
+    background-color: var(--main);
+    color: var(--secd);
+}
+
+.filter {
+    padding: 20px 0px;
+    box-shadow: 0px 0px 15px var(--main);
+    margin-top: 35%;
+}
+
+.filter input {
+    margin-bottom: 15px;
+    width: 85%;
+    margin: auto;
+}
+
+.filter ul li {
+    text-transform: capitalize;
+    padding: 10px 25px;
+    color: var(--main);
+    font-size: 19px;
+    transition: 0.5s all ease-in-out;
+    -webkit-transition: 0.5s all ease-in-out;
+    -moz-transition: 0.5s all ease-in-out;
+    -ms-transition: 0.5s all ease-in-out;
+    -o-transition: 0.5s all ease-in-out;
+}
+
+.filter ul li:hover,
+.filter ul li.active {
+    color: var(--secd);
+    background-color: var(--main);
+    font-weight: bold;
+}
+
+.filter h5 {
+    color: #888;
+}
+
+@media (max-width: 767.98px) {
+    .filter {
+        width: 80%;
+        margin: 10% auto;
+    }
+    [dir="rtl"] nav ul.pagination li a {
+        color: var(--secd);
+        font-weight: bold;
+        border: 1px solid var(--secd);
+        padding: .375rem 1.2rem;
+        border-top-left-radius: .25rem;
+        border-bottom-left-radius: .25rem;
+    }
+}

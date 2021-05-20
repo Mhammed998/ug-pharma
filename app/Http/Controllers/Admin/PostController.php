@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index(){
         $posts=Post::select('id' ,'title_'.app()->getLocale() . '  as title' ,
             'content_'.app()->getLocale() . '  as content' , 'post_image' , 'status' , 'created_at'
-            , 'category_id' )->paginate(15);
+            , 'category' )->paginate(15);
         return view('backend.posts.all' , ['posts' => $posts]);
     }
 
@@ -30,14 +30,14 @@ class PostController extends Controller
             'content_en' => 'required|string|min:3',
             'post_image' => 'required|image|mimes:jpg,jpeg,png,gif|max:4048',
             'status' =>'sometimes',
-            'category_id' => 'required'
+            'category' => 'required'
         ],[
             'title_en.required' => 'يرجى ادخال عنوان المنشور بالعربيه',
             'title_ar.required' => 'يرجى ادخال عنوان المنشور بالانجليزيه',
             'content_ar.required' => 'يرجى ادخال محتوى المنشور بالعربيه',
             'content_en.required' => 'يرجى ادخال محتوى المنشور بالانجليزيه',
             'post_image.required' => 'يرجى ادخال صوره المنشور ',
-            'category_id.required' => 'يرجي ادخل قسم للمنشور'
+            'category.required' => 'يرجي ادخل قسم للمنشور'
         ]);
 
         if($request->hasFile('post_image')){
@@ -53,7 +53,7 @@ class PostController extends Controller
             'content_ar' => $post['content_ar'],
             'post_image' => $imgName,
             'status' => $post['status'],
-            'category_id' => $post['category_id']
+            'category' => $post['category']
         ]);
 
         session()->flash('success','تم اضافه منشور جديد بنجاح');
@@ -81,14 +81,14 @@ class PostController extends Controller
             'content_en' => 'required|string|min:3',
             'post_image' => 'sometimes|image|mimes:jpg,jpeg,png,gif|max:4048',
             'status' =>'sometimes',
-            'category_id' => 'required'
+            'category' => 'required'
         ],[
             'title_en.required' => 'يرجى ادخال عنوان المنشور بالعربيه',
             'title_ar.required' => 'يرجى ادخال عنوان المنشور بالانجليزيه',
             'content_ar.required' => 'يرجى ادخال محتوى المنشور بالعربيه',
             'content_en.required' => 'يرجى ادخال محتوى المنشور بالانجليزيه',
             'post_image.required' => 'يرجى ادخال صوره المنشور ',
-            'category_id.required' => 'يرجي ادخل قسم للمنشور'
+            'category.required' => 'يرجي ادخل قسم للمنشور'
         ]);
 
 
@@ -104,7 +104,7 @@ class PostController extends Controller
                 'content_ar' => $data['content_ar'],
                 'post_image' => $imgName,
                 'status' => $data['status'],
-                'category_id' => $data['category_id']
+                'category' => $data['category']
             ]);
         }
 
@@ -114,7 +114,7 @@ class PostController extends Controller
             'content_en' =>  $data['content_en'],
             'content_ar' => $data['content_ar'],
             'status' => $data['status'],
-            'category_id' => $data['category_id']
+            'category' => $data['category']
         ]);
 
         session()->flash('success','تم تعديل المنشور بنجاح');

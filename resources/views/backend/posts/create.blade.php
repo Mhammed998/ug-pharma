@@ -82,11 +82,11 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="category_id">قسم المنشور </label>
-                                    <select class="form-control" name="category_id"  id="category_id" required>
+                                    <label for="category">قسم المنشور </label>
+                                    <select class="form-control" name="category"  id="category" required>
                                         <option value="0"> عام </option>
                                         @foreach($cates as $cate)
-                                            <option value="{{$cate->id}}">{{$cate->title_ar}}</option>
+                                            <option value="{{$cate->title_en}}">{{$cate->title_ar}}</option>
                                         @endforeach
                                     </select>
                                 </div>

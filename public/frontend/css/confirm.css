@@ -1,0 +1,196 @@
+.confirmed {
+    padding: 10px;
+    margin-bottom: 5%;
+    box-shadow: 0px 0px 10px var(--main);
+    background: var(--main);
+    border-radius: 10px;
+}
+
+.confirmed h5 {
+    color: var(--secd);
+    font-weight: bold;
+}
+
+.confirmed i {
+    margin-right: 5px;
+    color: var(--secd);
+    font-size: 22px;
+}
+
+.confirmed p {
+    color: #fff;
+}
+
+.order-table h3 {
+    font-size: 26px;
+}
+
+.order-table table thead tr th {
+    color: var(--secd);
+    padding-bottom: 20px;
+    padding-right: 10px !important;
+}
+
+.order-table table tbody tr {
+    transition: 0.2s all ease-in-out;
+    -webkit-transition: 0.2s all ease-in-out;
+    -moz-transition: 0.2s all ease-in-out;
+    -ms-transition: 0.2s all ease-in-out;
+    -o-transition: 0.2s all ease-in-out;
+}
+
+.order-table table tbody tr:hover {
+    background-color: #f6f6f6;
+}
+
+[dir="ltr"] .order-table table tr td {
+    padding-right: 6% !important;
+    color: #838080;
+    min-width: 80px;
+}
+
+[dir="rtl"] .order-table table tr td {
+    padding-left: 6% !important;
+    color: #838080;
+    min-width: 80px;
+}
+
+.order-table table .img-container {
+    max-width: 200px;
+    overflow: hidden;
+}
+
+.order-table table .img-container img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+
+/*table*/
+
+
+/*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        margin: 0 0 1rem 0;
+    }
+    tr:nth-child(odd) {
+        background: #f6f6f6;
+    }
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 0;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+    /*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+    td:nth-of-type(1):before {
+        content: "Photo";
+    }
+    td:nth-of-type(2):before {
+        content: "Details";
+    }
+    td:nth-of-type(3):before {
+        content: "Price";
+    }
+    td:nth-of-type(4):before {
+        content: "Number";
+    }
+    td:nth-of-type(5):before {
+        content: "Delete";
+    }
+}
+
+.final-detail {
+    background-color: #f6f3f3;
+    margin: 10px 0;
+}
+
+.final-detail div {
+    padding: 10px 15px;
+    width: 300px;
+}
+
+.final-detail div p {
+    color: #838080;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.down,
+.up {
+    width: 35px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.5s all ease-in-out;
+    margin-right: 10px;
+}
+
+.down:hover,
+.up:hover {
+    background-color: var(--main);
+    color: #fff;
+}
+
+.quantity-inp {
+    height: 30px;
+    width: 50px;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    color: #898989;
+}
+
+.order-table i {
+    color: #f00;
+}
+
+@media (max-width: 767.98px) {
+    .confirmed {
+        font-size: 12px;
+    }
+    .confirm table {
+        direction: ltr !important;
+    }
+    [dir="rtl"] .order-table table tr td {
+        padding-left: 50% !important;
+    }
+}

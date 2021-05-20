@@ -1,0 +1,45 @@
+ .video img {
+     height: 60vh;
+     width: 100%;
+ }
+ 
+ .statics h5 {
+     color: var(--main);
+     margin-bottom: 15px;
+     font-size: 27px;
+     font-weight: bold;
+ }
+ 
+ .statics p {
+     color: #838080;
+     font-size: 18px;
+     letter-spacing: 1.4px;
+ }
+ 
+ .mission-vision p,
+ .about p {
+     width: 80%;
+     margin: auto;
+     color: #838080;
+     line-height: 1.8rem;
+ }
+ 
+ .mission-vision .img-container {
+     margin-bottom: 14%;
+ }
+ 
+ .mission-vision .img-container img {
+     height: 380px;
+     border-radius: 10px;
+ }
+ 
+ .mission-vision h4 {
+     color: var(--main);
+     font-weight: bold;
+     text-transform: capitalize;
+     font-size: 40px;
+ }
+ 
+ .mission-vision p {
+     width: 100%;
+ }
