@@ -12,6 +12,12 @@ class HomeController extends Controller
 {
 
 
+    public function GoToLogin(){
+        return view('frontend.auth.login');
+    }
+
+
+
 
     public function index()
     {

@@ -35,7 +35,10 @@ return [
     'LATESTPOSTS' => 'لاخر الاخبار',
     'SUBSCRIBE' => 'الاشتراك',
     'CONTACTINFO' => ' معلومات التواصل',
-    'change_language'=>' العربيه'
+    'change_language'=>' العربيه' ,
+    'Login' => 'تسجيل دخول',
+    'Register' => 'انشاء حساب',
+    'DASHBOARD' => 'لوحه التحكم'
 
 
 

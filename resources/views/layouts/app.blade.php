@@ -78,12 +78,27 @@
                     </div>
                     <div class="col-5 col-lg d-flex justify-content-end">
 
+                        @guest
+                            <div class="">
+                                <ul class="list-unstyled d-flex align-items-center h-100 ">
+                            <li class="mr-2 ml-2">
+                                <a class="" href="{{ route('login') }} ">{{ __('lang.Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="">
+                                    <a class="" href="{{route('register') }}">{{ __('lang.Register') }}</a>
+                                </li>
+                              </ul>
+                            </div>
+                            @endif
 
 
+                        @else
                         <div class="dropdown">
                             <a class="btn btn-outline account d-flex align-items-center h-100" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-user-circle"></i>
-                                <p> {{ Auth::user()->first_name . ' ' . Auth::user()->last_name  }}</p>
+                                <p>
+                                    {{ Auth::user()->first_name . ' ' . Auth::user()->last_name  }}</p>
                             </a>
 
 
@@ -109,6 +124,14 @@
                                     </a>
                                 </li>
 
+                                @if(Auth::user()->role ==='admin')
+                                <li>
+                                    <a href="{{route('dashboard.main')}}" class="dropdown-item">
+                                        <i class="fas fa-cog"></i>  {{ __('lang.DASHBOARD') }}
+                                    </a>
+                                </li>
+                                @endif
+
                                 <li>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -117,7 +140,7 @@
                                         {{ __('lang.LOGOUT') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{  \LaravelLocalization::localizeURL('/logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </li>
@@ -126,7 +149,7 @@
 
                             </ul>
                         </div>
-
+                        @endguest
 
 
 
@@ -161,7 +184,7 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <ul class="navbar-nav  mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#">{{__('lang.HOME')}}</a>
+                                            <a class="nav-link active" aria-current="page" href="{{route('home')}}">{{__('lang.HOME')}}</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="#">{{__('lang.ABOUT')}} </a>

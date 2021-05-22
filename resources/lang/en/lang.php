@@ -37,7 +37,12 @@ return [
     'LATESTPOSTS' => 'Latest Posts',
     'SUBSCRIBE' => 'Subscribe',
     'CONTACTINFO' => 'Contact Info ',
-    'change_language'=>'English'
+    'change_language'=>'English',
+    'Login' => ' Login',
+    'Register' => ' Register',
+    'LOGOUT' => 'Logout',
+    'DASHBOARD' => ' Dashboard'
+
 
 
 
