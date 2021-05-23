@@ -19,6 +19,21 @@ a {
     text-decoration: none !important;
 }
 
+div.buttom button.btn {
+    border: 2px solid var(--secd);
+    padding: 6px 32px;
+    background: linear-gradient( 45deg, var(--main) 40%, transparent);
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+div.buttom button.btn:hover {
+    background: linear-gradient( -45deg, var(--main) 40%, transparent);
+}
+
+
 div.buttom a.btn {
     border: 2px solid var(--secd);
     padding: 6px 32px;

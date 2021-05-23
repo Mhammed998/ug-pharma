@@ -20,9 +20,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('frontend/css/text.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/about.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/blog.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/products.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/confirm.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/profile.css')}}">
 
     @yield('front-styles')
 
@@ -58,16 +62,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-3 d-flex align-items-center">
-                        <a href="#">
+                        <a href="{{route('cart')}}">
                             <div class="shopping--bag d-flex align-items-center">
                                 <i class="fas fa-shopping-bag"></i>
-                                <p>2</p>
+                                <p>0</p>
                             </div>
                         </a>
-                        <a href="#">
+                        <a href="{{route('profile')}}">
                             <div class="whish--list d-flex align-items-center">
                                 <i class="fas fa-heart"></i>
-                                <p>2</p>
+                                <p>0</p>
                             </div>
                         </a>
                     </div>
@@ -187,16 +191,16 @@
                                             <a class="nav-link active" aria-current="page" href="{{route('home')}}">{{__('lang.HOME')}}</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">{{__('lang.ABOUT')}} </a>
+                                            <a class="nav-link" href="{{route('about')}}">{{__('lang.ABOUT')}} </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">{{__('lang.BLOG')}}</a>
+                                            <a class="nav-link" href="{{route('blog')}}">{{__('lang.BLOG')}}</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">{{__('lang.PRODUCTS')}}</a>
+                                            <a class="nav-link" href="{{route('products')}}">{{__('lang.PRODUCTS')}}</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">{{__('lang.CONTACTUS')}}</a>
+                                            <a class="nav-link" href="{{route('contact')}}">{{__('lang.CONTACTUS')}}</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -233,32 +237,39 @@
 
 
 
-    <!--start keep in touch -->
-    <section class="keep-touch text-center">
-        <div class="container">
-            <h3>
-                {{__('lang.LETSKEEPINTOUCH')}}
-            </h3>
-            <p>{{__('lang.WRITEYOURMESSAGE')}}</p>
-            <form class="row g-3">
-                <div class="col-md">
-                    <input type="text" class="form-control" placeholder="{{__('lang.SNAME')}}">
-                </div>
-                <div class="col-md">
-                    <input type="email" class="form-control" placeholder="{{__('lang.SEMAIL')}}">
-                </div>
-                <div class="col-md">
-                    <input type="text" class="form-control" placeholder="{{__('lang.SPHONE')}}">
-                </div>
-                <div class="form-group col-md-12">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{__('lang.SMESSAGE')}}"></textarea>
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-outline rounded-pill">{{__('lang.SUBMITNOW')}}</button>
-                </div>
-            </form>
-        </div>
-    </section>
+        @if (Route::current()->uri() == '/')
+
+            <!--start keep in touch -->
+        <section id="contact" class="keep-touch text-center">
+            <div class="container">
+                <h3>
+                    {{__('lang.LETSKEEPINTOUCH')}}
+                </h3>
+                <p>{{__('lang.WRITEYOURMESSAGE')}}</p>
+                <form class="row g-3">
+                    <div class="col-md">
+                        <input type="text" class="form-control" placeholder="{{__('lang.SNAME')}}">
+                    </div>
+                    <div class="col-md">
+                        <input type="email" class="form-control" placeholder="{{__('lang.SEMAIL')}}">
+                    </div>
+                    <div class="col-md">
+                        <input type="text" class="form-control" placeholder="{{__('lang.SPHONE')}}">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{__('lang.SMESSAGE')}}"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-outline rounded-pill">{{__('lang.SUBMITNOW')}}</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        @endif
+
+
+
     <!--start footer-->
     <footer>
         <div class="container h-100">
