@@ -24,16 +24,33 @@
 
                 @if($cates->count() > 0)
                    @foreach($cates as $cate)
-                <div class="col-lg-6 col-md-6 mb-2">
-                    <div class="img-container">
-                        <img src="{{asset('images/categories/' . $cate->cate_image)}}" class="img-fluid">
-                    </div>
-                    <p>{{$cate->title}}</p>
-                    <div>
-                        <a class="btn btn-outline rounded-pill" href="{{$cate->id}}" role="button">{{__('lang.SHOPNOW')}}</a>
-                    </div>
-                </div>
+
+
+                        @if ($loop->odd)
+                            <div class="col-lg-7 col-md-6 mb-2">
+                                <div class="img-container">
+                                    <img src="{{asset('images/categories/' . $cate->cate_image)}}" class="img-fluid">
+                                </div>
+                                <p>{{$cate->title}}</p>
+                                <div>
+                                    <a class="btn btn-outline rounded-pill" href="{{$cate->id}}" role="button">{{__('lang.SHOPNOW')}}</a>
+                                </div>
+                            </div>
+                        @endif
+                            @if ($loop->even)
+                                <div class="col-lg-5 col-md-6 mb-2">
+                                    <div class="img-container">
+                                        <img src="{{asset('images/categories/' . $cate->cate_image)}}" class="img-fluid">
+                                    </div>
+                                    <p>{{$cate->title}}</p>
+                                    <div>
+                                        <a class="btn btn-outline rounded-pill" href="{{$cate->id}}" role="button">{{__('lang.SHOPNOW')}}</a>
+                                    </div>
+                                </div>
+                            @endif
+
                     @endforeach
+
                 @else
                  <div class="alert alert-info"> there is no category yet </div>
                 @endif
@@ -187,10 +204,10 @@
                     </div>
                     <h5>{{date('M-d-Y', strtotime($post->created_at))}}</h5>
                     <p>
-                        {{$post->content}}
+                        {{ \Illuminate\Support\Str::limit($post->content, 400, $end='...') }}
                     </p>
                     <div>
-                        <a class="btn btn-outline rounded-pill" href="#" role="button">{{__('lang.READMORE')}}</a>
+                        <a class="btn btn-outline mb-3 rounded-pill" href="#" role="button">{{__('lang.READMORE')}}</a>
                     </div>
                 </div>
                     @endforeach

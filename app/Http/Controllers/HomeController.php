@@ -40,11 +40,20 @@ class HomeController extends Controller
     }
 
     public function blog(){
-        return view('frontend.blog');
+        $cates=Category::select('id' ,'title_'.app()->getLocale() . '  as title' ,
+            'description_'.app()->getLocale() . '  as description' , 'cate_image' , 'status' , 'created_at'  )->get();
+        $posts=Post::select('id' ,'title_'.app()->getLocale() . '  as title' ,
+            'content_'.app()->getLocale() . '  as content' , 'post_image' , 'status' , 'created_at' , 'category'  )->get();
+        return view('frontend.blog' , ['cates' => $cates , 'posts' => $posts]);
     }
 
     public function products(){
-        return view('frontend.products');
+        $cates=Category::select('id' ,'title_'.app()->getLocale() . '  as title' ,
+            'description_'.app()->getLocale() . '  as description' , 'cate_image' , 'status' , 'created_at'  )->get();
+        $products=Product::select('id' ,'name_'.app()->getLocale() . '  as name' , 'category_id',
+            'description_'.app()->getLocale() . '  as description' ,'code' , 'price' , 'brand' , 'status' ,
+            'created_at' , 'images'  )->paginate(9);
+        return view('frontend.products' , ['products' => $products , 'cates' => $cates]);
     }
 
     public function contact(){

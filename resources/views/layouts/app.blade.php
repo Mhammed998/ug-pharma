@@ -13,7 +13,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('frontend/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/all.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/swiper-bundel.min.css')}}">
@@ -23,8 +22,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('frontend/css/text.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/about.css')}}">
-    <link rel="stylesheet" href="{{asset('frontend/css/blog.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/products.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/blog.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/confirm.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/profile.css')}}">
 
@@ -179,14 +178,14 @@
                 <div class="row">
                     <div class="col-lg-8 col px-0">
                         <nav class="navbar navbar-expand-lg p-0">
-                            <div class="container-fluid ps-0">
+                            <div class="container-fluid {{app()->getLocale() == "en" ? "ps-0" : "pe-0"}} ">
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                     <span class="navbar-toggler-icon"></span>
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    <ul class="navbar-nav  mb-2 mb-lg-0">
+                                    <ul class="navbar-nav p-0 mb-2 mb-lg-0">
                                         <li class="nav-item">
                                             <a class="nav-link active" aria-current="page" href="{{route('home')}}">{{__('lang.HOME')}}</a>
                                         </li>
