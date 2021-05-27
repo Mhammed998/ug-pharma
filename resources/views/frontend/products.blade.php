@@ -54,8 +54,8 @@
                                             @endforeach
 
                                             <div class="show-whish d-flex align-items-center justify-content-center">
-                                                <a href="product-details.html"><i class="fas fa-eye"></i></a>
-                                                <i class="fas fa-heart"></i>
+                                                <a href="{{route('product-details',$product->id)}}"><i class="fas fa-eye"></i></a>
+                                                <a href="{{route('addToWishList',$product->id)}}"> <i class="fas fa-heart"></i></a>
                                             </div>
                                         </div>
                                         <p>{{$product->name}}</p>

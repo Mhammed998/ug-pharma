@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{asset('frontend/css/blog.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/confirm.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/profile.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/product-details.css')}}">
+
 
     @yield('front-styles')
 
@@ -70,7 +72,7 @@
                         <a href="{{route('profile')}}">
                             <div class="whish--list d-flex align-items-center">
                                 <i class="fas fa-heart"></i>
-                                <p>0</p>
+                                <p>{{Auth::user() ? Auth::user()->products->count() : "0"}}</p>
                             </div>
                         </a>
                     </div>
@@ -82,15 +84,15 @@
                     <div class="col-5 col-lg d-flex justify-content-end">
 
                         @guest
-                            <div class="">
+                            <div>
                                 <ul class="list-unstyled d-flex align-items-center h-100 ">
-                            <li class="mr-2 ml-2">
-                                <a class="" href="{{ route('login') }} ">{{ __('lang.Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="">
-                                    <a class="" href="{{route('register') }}">{{ __('lang.Register') }}</a>
-                                </li>
+                                        <li class="">
+                                            <a class="" href="{{ route('login') }} ">{{ __('lang.Login') }}</a>  |
+                                        </li>
+                              @if (Route::has('register'))
+                                        <li class="">
+                                              <a class="" href="{{route('register') }}">{{ __('lang.Register') }}</a>
+                                        </li>
                               </ul>
                             </div>
                             @endif

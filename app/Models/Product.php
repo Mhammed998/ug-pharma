@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -22,9 +23,12 @@ class Product extends Model
     }
 
 
-    public function wishlist(){
-        return $this->hasMany(Wishlist::class);
+    public function users(){
+        return $this->belongsToMany(User::class);
     }
+
+
+
 
 
 }

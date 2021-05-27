@@ -66,7 +66,7 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="content_en"> الوصف بالانجليزيه</label>
+                                    <label for="content_en"> المحتوى بالانجليزيه</label>
                                     <textarea name="content_en" rows="8" class="form-control" id="content_en"
                                               placeholder="ادخل محتوى المنشور باللغه بالانجليزيه" required></textarea>
                                 </div>

@@ -62,7 +62,7 @@
                                     {{ \Illuminate\Support\Str::limit($post->content, 400, $end='...') }}
                                 </p>
                                 <div>
-                                    <a class="btn btn-outline rounded-pill" href="blog-details.html" role="button">{{__('lang.READMORE')}}</a>
+                                    <a class="btn btn-outline rounded-pill" href="{{route('blog-details',$post->id)}}" role="button">{{__('lang.READMORE')}}</a>
                                 </div>
                             </div>
 
@@ -77,7 +77,7 @@
                                         {{ \Illuminate\Support\Str::limit($post->content, 500, $end='...') }}
                                     </p>
                                     <div>
-                                        <a class="btn btn-outline rounded-pill" href="blog-details.html" role="button">{{__('lang.READMORE')}}</a>
+                                        <a class="btn btn-outline rounded-pill" href="{{route('blog-details',$post->id)}}" role="button">{{__('lang.READMORE')}}</a>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-5">

@@ -64,127 +64,43 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active ms-md-5 ms-3" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
+                        @include('backend.alert')
+
                         <section class="whish mt-4">
                             <div class="row">
-                                <div class="col-lg-3 col-md-4 col-6 mb-3">
-                                    <div class="product">
-                                        <div class="img-container">
-                                            <img src="{{asset('frontend/imgs/green-coffe.png')}}" class="img-fluid">
-                                            <img src="{{asset('frontend/imgs/coffe.png')}}" class="img-fluid secd">
-                                            <div class="show-whish d-flex align-items-center justify-content-center">
-                                                <a href="product-details.html"><i class="fas fa-eye"></i></a>
-                                                <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                                <i class="fas fa-trash-alt"></i>
+
+                                @if($user->products->count() > 0)
+                                    @foreach($user->products as $product)
+                                    <div class="col-lg-3 col-md-4 col-6 mb-3">
+                                        <div class="product text-center">
+                                            <div class="img-container">
+                                                @foreach(explode("|",$product->images) as $image)
+                                                    @if ($loop->first)
+                                                        <img src="{{asset('images/products/' . $image)}}" class="img-fluid">
+                                                    @endif
+
+                                                    @if ($loop->last)
+                                                        <img src="{{asset('images/products/' . $image )}}" class="img-fluid secd">
+                                                    @endif
+                                                @endforeach
+
+                                                <div class="show-whish d-flex align-items-center justify-content-center">
+                                                    <a href="{{route('product-details',$product->id)}}"><i class="fas fa-eye"></i></a>
+                                                    <a href="{{route('removeFromWishList',$product->id)}}"><i class="fas fa-times"></i></a>
+
+                                                </div>
+                                        </div>
+                                            <p class="">{{app()->getLocale() == 'en' ? $product->name_en : $product->name_ar}}</p>
+                                            <div>
+                                                <a class="btn btn-outline rounded-pill" role="button">{{__('lang.ADDTOCART')}}</a>
                                             </div>
-                                        </div>
-                                        <p>Green Coffe</p>
-                                        <div>
-                                            <a class="btn btn-outline rounded-pill" role="button">Add To Cart</a>
-                                        </div>
+                                      </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-6 mb-3">
-                                    <div class="product">
-                                        <div class="img-container">
-                                            <img src="{{asset('frontend/imgs/green-coffe.png')}}" class="img-fluid">
-                                            <img src="{{asset('frontend/imgs/coffe.png')}}" class="img-fluid secd">
-                                            <div class="show-whish d-flex align-items-center justify-content-center">
-                                                <a href="product-details.html"><i class="fas fa-eye"></i></a>
-                                                <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                                <i class="fas fa-trash-alt"></i>
-                                            </div>
-                                        </div>
-                                        <p>Green Coffe</p>
-                                        <div>
-                                            <a class="btn btn-outline rounded-pill" role="button">Add To Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-6 mb-3">
-                                    <div class="product">
-                                        <div class="img-container">
-                                            <img src="{{asset('frontend/imgs/green-coffe.png')}}" class="img-fluid">
-                                            <img src="{{asset('frontend/imgs/coffe.png')}}" class="img-fluid secd">
-                                            <div class="show-whish d-flex align-items-center justify-content-center">
-                                                <a href="product-details.html"><i class="fas fa-eye"></i></a>
-                                                <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                                <i class="fas fa-trash-alt"></i>
-                                            </div>
-                                        </div>
-                                        <p>Green Coffe</p>
-                                        <div>
-                                            <a class="btn btn-outline rounded-pill" role="button">Add To Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-6 mb-3">
-                                    <div class="product">
-                                        <div class="img-container">
-                                            <img src="{{asset('frontend/imgs/green-coffe.png')}}" class="img-fluid">
-                                            <img src="{{asset('frontend/imgs/coffe.png')}}" class="img-fluid secd">
-                                            <div class="show-whish d-flex align-items-center justify-content-center">
-                                                <a href="product-details.html"><i class="fas fa-eye"></i></a>
-                                                <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                                <i class="fas fa-trash-alt"></i>
-                                            </div>
-                                        </div>
-                                        <p>Green Coffe</p>
-                                        <div>
-                                            <a class="btn btn-outline rounded-pill" role="button">Add To Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-6 mb-3">
-                                    <div class="product">
-                                        <div class="img-container">
-                                            <img src="{{asset('frontend/imgs/green-coffe.png')}}" class="img-fluid">
-                                            <img src="{{asset('frontend/imgs/coffe.png')}}" class="img-fluid secd">
-                                            <div class="show-whish d-flex align-items-center justify-content-center">
-                                                <a href="product-details.html"><i class="fas fa-eye"></i></a>
-                                                <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                                <i class="fas fa-trash-alt"></i>
-                                            </div>
-                                        </div>
-                                        <p>Green Coffe</p>
-                                        <div>
-                                            <a class="btn btn-outline rounded-pill" role="button">Add To Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-6 mb-3">
-                                    <div class="product">
-                                        <div class="img-container">
-                                            <img src="{{asset('frontend/imgs/green-coffe.png')}}" class="img-fluid">
-                                            <img src="{{asset('frontend/imgs/coffe.png')}}" class="img-fluid secd">
-                                            <div class="show-whish d-flex align-items-center justify-content-center">
-                                                <a href="product-details.html"><i class="fas fa-eye"></i></a>
-                                                <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                                <i class="fas fa-trash-alt"></i>
-                                            </div>
-                                        </div>
-                                        <p>Green Coffe</p>
-                                        <div>
-                                            <a class="btn btn-outline rounded-pill" role="button">Add To Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-6 mb-3">
-                                    <div class="product">
-                                        <div class="img-container">
-                                            <img src="{{asset('frontend/imgs/green-coffe.png')}}" class="img-fluid">
-                                            <img src="{{asset('frontend/imgs/coffe.png')}}" class="img-fluid secd">
-                                            <div class="show-whish d-flex align-items-center justify-content-center">
-                                                <a href="product-details.html"><i class="fas fa-eye"></i></a>
-                                                <a href="cart.html"><i class="fas fa-shopping-bag"></i></a>
-                                                <i class="fas fa-trash-alt"></i>
-                                            </div>
-                                        </div>
-                                        <p>Green Coffe</p>
-                                        <div>
-                                            <a class="btn btn-outline rounded-pill" role="button">Add To Cart</a>
-                                        </div>
-                                    </div>
-                                </div>
+
+                                    @endforeach
+                                @else
+                                    <div class="alert alert-info">There is no product yet in your wishlist !</div>
+                                @endif
                             </div>
                         </section>
 
@@ -244,9 +160,9 @@
                     <div class="tab-pane fade ms-md-5 ms-3" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         <section class="info mt-4 d-flex justify-content-center">
                             <div>
-                                <p>Name : <span>Amany Samir </span></p>
-                                <p>E-mail : <span>AmanySamir@yahoo.com </span></p>
-                                <p>Phone : <span>0123456789 </span></p>
+                                <p>Name : <span>{{Auth::user()->first_name . ' ' . Auth::user()->last_name }}</span></p>
+                                <p>E-mail : <span>{{Auth::user()->email}} </span></p>
+                                <p>Phone : <span>{{Auth::user()->phone}} </span></p>
                                 <p class="aff-market">come on buy and collect coins and get products free</p>
                                 <div class="buttom mt-4 text-center">
                                     <a class="btn btn-outline rounded-pill coins-btn" role="button">Earn Coins</a>

@@ -33,7 +33,7 @@
                                 </div>
                                 <p>{{$cate->title}}</p>
                                 <div>
-                                    <a class="btn btn-outline rounded-pill" href="{{$cate->id}}" role="button">{{__('lang.SHOPNOW')}}</a>
+                                    <a class="btn btn-outline rounded-pill" href="{{route('categoryDetails' , $cate->id)}}" role="button">{{__('lang.SHOPNOW')}}</a>
                                 </div>
                             </div>
                         @endif
@@ -44,7 +44,7 @@
                                     </div>
                                     <p>{{$cate->title}}</p>
                                     <div>
-                                        <a class="btn btn-outline rounded-pill" href="{{$cate->id}}" role="button">{{__('lang.SHOPNOW')}}</a>
+                                        <a class="btn btn-outline rounded-pill" href="{{route('categoryDetails' , $cate->id)}}" role="button">{{__('lang.SHOPNOW')}}</a>
                                     </div>
                                 </div>
                             @endif
@@ -90,8 +90,9 @@
                                         @endforeach
 
                                         <div class="show-whish d-flex align-items-center justify-content-center">
-                                            <a href="product-details.html"><i class="fas fa-eye"></i></a>
-                                            <i class="fas fa-heart"></i>
+                                            <a href="{{route('product-details',$product->id)}}"><i class="fas fa-eye"></i></a>
+                                            <a href="{{route('addToWishList',$product->id)}}"> <i class="fas fa-heart"></i></a>
+
                                         </div>
                                     </div>
                                     <p>{{$product->name}}</p>
@@ -163,8 +164,8 @@
                                                 @endforeach
 
                                                 <div class="show-whish d-flex align-items-center justify-content-center">
-                                                    <a href="product-details.html"><i class="fas fa-eye"></i></a>
-                                                    <i class="fas fa-heart"></i>
+                                                    <a href="{{route('product-details',$product->id)}}"><i class="fas fa-eye"></i></a>
+                                                    <a href="{{route('addToWishList',$product->id)}}"> <i class="fas fa-heart"></i></a>
                                                 </div>
                                             </div>
                                             <p>{{$product->name}}</p>
