@@ -97,7 +97,7 @@
                                     </div>
                                     <p>{{$product->name}}</p>
                                     <div>
-                                        <a class="btn btn-outline rounded-pill" role="button">{{__('lang.ADDTOCART')}}</a>
+                                        <a href="{{route('addToCart',$product->id)}}" class="btn btn-outline rounded-pill" role="button">{{__('lang.ADDTOCART')}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +170,7 @@
                                             </div>
                                             <p>{{$product->name}}</p>
                                             <div>
-                                                <a class="btn btn-outline rounded-pill" role="button">{{__('lang.ADDTOCART')}}</a>
+                                                <a href="{{route('addToCart',$product->id)}}" class="btn btn-outline rounded-pill" role="button">{{__('lang.ADDTOCART')}}</a>
                                             </div>
                                         </div>
                                     </div>

@@ -66,7 +66,7 @@
                         <a href="{{route('cart')}}">
                             <div class="shopping--bag d-flex align-items-center">
                                 <i class="fas fa-shopping-bag"></i>
-                                <p>0</p>
+                                <p>{{ count((array) session('cart')) }}</p>
                             </div>
                         </a>
                         <a href="{{route('profile')}}">
@@ -348,7 +348,12 @@
     <script src="{{asset('frontend/js/jquery.js')}}"></script>
     <script src="{{asset('frontend/js/swiper-bundel.min.js')}}"></script>
     <script src="{{asset('frontend/js/text.js')}}"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
 
 @yield('front-scripts')
+
 </body>
 </html>
