@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\Wishlist;
+use App\Models\Review;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -86,6 +87,38 @@ class HomeController extends Controller
         $user=Auth::user();
         return view('frontend.profile',['user'=>$user]);
     }
+
+    // reviews functions
+
+    public function saveReview(Request $request){
+        $review=Review::create([
+            'username' => $request->username,
+            'rate' => $request->rate,
+            'comment' => $request->comment,
+            'product_id' => $request->product_id
+        ]);
+
+        session()->flash('success','تم تقيم المنتج بنجاح');
+
+        return redirect()->back();
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function addToWishList($product_id){
         $product=Product::findOrFail($product_id);

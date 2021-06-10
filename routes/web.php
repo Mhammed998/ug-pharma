@@ -11,7 +11,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' =>
     ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
 ], function () {
 
-    Auth::routes();
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/about', 'HomeController@about')->name('about');
@@ -21,6 +20,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' =>
 
     Route::get('/products', 'HomeController@products')->name('products');
     Route::get('/product-details/{id}', 'HomeController@productDetails')->name('product-details');
+    Route::post('/product-details/review/save', 'HomeController@saveReview')->name('product-saveReview');
+
+
+
+
     Route::get('/wishlist/{product_id}', 'HomeController@addToWishList')->name('addToWishList')->middleware('auth');
     Route::get('/wishlist/remove/{product_id}', 'HomeController@removeFromWishList')->name('removeFromWishList')->middleware('auth');
     Route::get('add-to-cart/{id}', 'HomeController@addToCart')->name('addToCart');
@@ -32,6 +36,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' =>
     Route::get('/cart', 'HomeController@cart')->name('cart')->middleware('auth');
 
 
+    Auth::routes();
 
 
 

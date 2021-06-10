@@ -1,5 +1,17 @@
 @extends('layouts.app')
 @section('front-title' , 'UG pharma | Product')
+@section('front-styles')
+    <style>
+        .review .fas{
+            color: var(--secd);
+        }
+        .review .far{
+            color: var(--secd);
+        }
+
+
+    </style>
+@endsection
 @section('front-content')
 
 
@@ -68,7 +80,7 @@
                     <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Product Details</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Reviews</button>
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Reviews ({{$product->reviews->count()}})</button>
                 </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
@@ -80,76 +92,106 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <div class="d-flex review mb-3">
+
+                    @if($product->reviews->count() > 0)
+                       @foreach($product->reviews as $review)
+                    <div class=" d-flex review mb-3">
                         <div class="img-container">
-                            <img src="imgs/avatar.jpg" class="img-fluid">
+                            <img alt="" src="https://toppng.com/uploads/preview/roger-berry-avatar-placeholder-11562991561rbrfzlng6h.png" class="img-fluid">
                         </div>
                         <div class="ms-4">
-                            <div class="star d-flex rated mb-3">
+                            <div class="  d-flex rated mb-3">
+                                @if($review->rate == '5')
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
+                                @elseif($review->rate == '4')
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+
+                                @elseif($review->rate == '3')
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+
+                                @elseif($review->rate == '2')
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                @elseif($review->rate == '1')
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+
+                                @endif
+
+
                             </div>
                             <p class="profile-info">
-                                <span class="name"> Amany Samir </span> - <span class="date">octaber 8,2020</span>
+                                <span class="name"> {{$review->username}} </span> - <span class="date">{{$review->created_at->format('Mm','Dd','y')}}</span>
                             </p>
                             <p class="review-text">
-                                The product is awsome , i love it .
+                                {{$review->comment}}
                             </p>
                         </div>
                     </div>
-                    <div class="d-flex review mb-3">
-                        <div class="img-container">
-                            <img src="imgs/avatar.jpg" class="img-fluid">
-                        </div>
-                        <div class="ms-4">
-                            <div class="star d-flex rated mb-3">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="profile-info">
-                                <span class="name"> Amany Samir </span> - <span class="date">octaber 8,2020</span>
-                            </p>
-                            <p class="review-text">
-                                The product is awsome , i love it .
-                            </p>
-                        </div>
-                    </div>
+                       @endforeach
+                    @else
+                        <div class="alert alert-info text-center"> There is no review yet..!</div>
+                    @endif
+
                     <div class="add-review  mt-4">
                         <h5>
                             add review
                         </h5>
                         <p class="mb-0 ml-1">rate product</p>
-                        <div class="star d-flex mb-2">
-                            <div class="rate">
-                                <input type="radio" id="star5" name="rate" value="5" />
-                                <label for="star5" title="text" class="fas fa-star"></label>
-                                <input type="radio" id="star4" name="rate" value="4" />
-                                <label for="star4" title="text" class="fas fa-star"></label>
-                                <input type="radio" id="star3" name="rate" value="3" />
-                                <label for="star3" title="text" class="fas fa-star"></label>
-                                <input type="radio" id="star2" name="rate" value="2" />
-                                <label for="star2" title="text" class="fas fa-star"></label>
-                                <input type="radio" id="star1" name="rate" value="1" />
-                                <label for="star1" title="text" class="fas fa-star"></label>
+
+
+                        <form action="{{route('product-saveReview')}}" method="post">
+                            @csrf
+
+                            <div class="star d-flex mb-2">
+                                <div class="rate">
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text" class="fas fa-star"></label>
+                                    <input type="radio" id="star4" name="rate" value="4" />
+                                    <label for="star4" title="text" class="fas fa-star"></label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text" class="fas fa-star"></label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text" class="fas fa-star"></label>
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text" class="fas fa-star"></label>
+                                </div>
                             </div>
-                        </div>
-                        <form>
+
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">leave a comment</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Review"></textarea>
+                                <textarea name="comment" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Review"></textarea>
                             </div>
                             <label for="exampleFormControlInput1">Enter your name</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="EX : Amany Samir">
+                            <input name="username" type="text" class="form-control" id="exampleFormControlInput1" placeholder="EX : Firstname Lastname">
+                            <input class="form-control" name="product_id" type="hidden" value="{{$product->id}}">
+
                             <div class="buttom mt-4 ">
-                                <a class="btn btn-outline rounded-pill" href="#" role="button">Submit</a>
+                                <button type="submit" class="btn btn-outline rounded-pill" >Save</button>
                             </div>
+
                         </form>
+
+
+
                     </div>
                 </div>
             </div>

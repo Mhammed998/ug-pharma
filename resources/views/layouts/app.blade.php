@@ -87,11 +87,11 @@
                             <div>
                                 <ul class="list-unstyled d-flex align-items-center h-100 ">
                                         <li class="">
-                                            <a class="" href="{{ route('login') }} ">{{ __('lang.Login') }}</a>  |
+                                            <a class="btn btn-sm btn-outline-primary" href="{{ route('login') }} ">{{ __('lang.Login') }}</a>
                                         </li>
                               @if (Route::has('register'))
                                         <li class="">
-                                              <a class="" href="{{route('register') }}">{{ __('lang.Register') }}</a>
+                                              <a class="btn btn-sm btn-outline-dark" href="{{route('register') }}">{{ __('lang.Register') }}</a>
                                         </li>
                               </ul>
                             </div>
